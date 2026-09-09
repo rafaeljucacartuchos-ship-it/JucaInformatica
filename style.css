@@ -1,0 +1,456 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  padding: 0px;
+}
+
+header {
+  background-color: #242424;
+  color: #fff;
+  padding: 5px 0; /* Aumentei o padding para manter o título centralizado e afastado das bordas */
+  text-align: center;
+  
+}
+
+/* Estilos Gerais */
+/* Estilos Gerais */
+#navbar {
+background-color: #333;
+color: white;
+padding: 10px 20px;
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+ul {
+list-style: none;
+display: flex;
+padding: 0;
+margin: 0;
+}
+
+ul.nav-links {
+flex-grow: 1;
+justify-content: flex-start;
+}
+
+ul.nav-right {
+justify-content: flex-end;
+}
+
+ul li {
+margin-left: 20px;
+}
+
+ul li a {
+color: white;
+text-decoration: none;
+font-weight: bold;
+}
+
+/* Estilo dos ícones de redes sociais */
+ul.nav-right li a {
+font-size: 20px; /* Tamanho dos ícones */
+transition: color 0.3s ease;
+}
+
+ul.nav-right li a:hover {
+color: #007bff; /* Cor ao passar o mouse */
+}
+
+/* Estilos para telas pequenas */
+@media (max-width: 768px) {
+.nav-left ul {
+    flex-direction: line; /* Os links ficam em coluna no mobile */
+    text-align: left;
+}
+
+.nav-right {
+    flex-direction: row; /* Ícones continuam visíveis em linha */
+}
+}
+
+
+section {
+  padding: 20px;
+  text-align: center;
+}
+
+
+section#home {
+  background-color: #e2e2e2;
+}
+
+/* Estilos Gerais do Footer */
+#footer {
+  background-color: #242424;
+  color: #f4f4f4;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1000px; /* Ajuste para reduzir a largura máxima */
+  margin: 0 auto;
+  padding-bottom: 20px; /* Reduzido para ajustar em telas menores */
+}
+
+
+
+/* Redes Sociais */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #f4f4f4;
+  font-size: 20px; /* Redução no tamanho dos ícones para economizar espaço */
+  margin: 0 10px; /* Ajuste no espaçamento entre os ícones */
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
+
+/* Seção de Direitos Autorais */
+.footer-bottom {
+padding: 15px 0; /* Redução no padding */
+  background-color: #1a1a1a;
+  color: #888;
+  font-size: 12px; /* Tamanho de fonte reduzido para texto de direitos autorais */
+}
+
+.footer-bottom p {
+  margin: 5px 0;
+}
+
+.footer-bottom a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+.footer-bottom img {
+width: 80px; /* Redução no tamanho do logo */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+.footer-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+}
+
+/* Estilo do título dos serviços */
+#servicos h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Estilo dos ícones */
+.servicos-container {
+  display: grid;
+  gap: 16px;
+  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Colunas flexíveis */
+}
+
+.servico {
+  padding: 20px;
+  border: 1px ;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.servico i {
+  font-size: 40px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.servico i:hover {
+  color: #007bff;
+}
+
+/* Layout de 4 colunas em telas grandes */
+@media (min-width: 1024px) {
+  .servicos-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Layout de 3 colunas em telas médias */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .servicos-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Layout de 2 colunas em tablets */
+@media (min-width: 481px) and (max-width: 767px) {
+  .servicos-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Layout de 1 coluna em celulares */
+@media (max-width: 480px) {
+  .servicos-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .servico{
+    margin-bottom: 10px;
+  }
+}
+
+.servico i {
+  font-size: 40px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.servico i:hover {
+  color: #0315b7;
+}
+
+
+/* Estilo dos modais */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease-in-out;
+
+}
+
+
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  transform: scale(0.7);
+  transition: transform 0.3s ease-in-out;
+}
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+.fechar {
+  color: #aaa;
+ 
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute; /* Posiciona o botão de fechar em relação ao modal */
+  top: 1px; /* Ajuste este valor para definir a distância do topo */
+  right: 15px; /* Ajuste este valor para definir a distância da direita */
+  cursor: pointer;
+}
+
+.fechar:hover,
+.fechar:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+
+  footer p {
+    font-size: 10px; /* Reduzindo tamanho da fonte no rodapé */
+    color :#888
+  }
+}
+
+@media (max-width: 480px) {
+  .servico i {
+    font-size: 25px; /* Ícones menores em dispositivos móveis */
+  }
+}
+
+/* Seção de Contato */
+#contato {
+padding: 50px 20px;
+background-color: #f4f4f4;
+text-align: center;
+}
+
+.contact-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.contact-left, .contact-right {
+flex: 1;
+padding: 20px;
+margin-bottom: 20px;
+}
+
+.contact-left {
+text-align: left;
+}
+
+.contact-right {
+text-align: left;
+}
+
+/* Estilo do Formulário */
+.contact-form {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+width: 100%;
+padding: 15px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 16px;
+}
+
+.contact-form textarea {
+height: 150px;
+resize: vertical;
+}
+
+.contact-form button {
+padding: 15px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 18px;
+}
+
+.contact-form button:hover {
+background-color: #0056b3;
+}
+
+/* Informações de Contato */
+.contact-info {
+margin-top: 20px;
+}
+
+.contact-info p {
+font-size: 18px;
+margin: 10px 0;
+}
+
+.contact-info i {
+margin-right: 10px;
+}
+
+.contact-info a {
+color: #007bff;
+text-decoration: none;
+}
+
+.contact-info a:hover {
+text-decoration: underline;
+}
+
+/* Estilos do Mapa */
+.map-container {
+margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+.contact-container {
+    flex-direction: column;
+}
+
+.contact-left, .contact-right {
+    text-align: center;
+}
+
+.map-container iframe {
+    height: 200px;
+}
+}
+.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-link i {
+  font-size: 24px;
+}
+
+.whatsapp-link:hover {
+  background-color: #1EBE5A;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
