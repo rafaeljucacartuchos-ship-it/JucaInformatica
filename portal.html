@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://klpbqpcwdhuegcmoqspj.supabase.co/storage/v1/object/public/site/img/logo.png" type="image/png">
+    <title>Meus Projetos — Juca Informática</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+</head>
+<body class="auth-body">
+    <header class="appbar">
+        <div class="appbar-inner">
+            <a href="index.html"><img src="https://klpbqpcwdhuegcmoqspj.supabase.co/storage/v1/object/public/site/img/logo-header.png" alt="Juca Informática"></a>
+            <div class="appbar-user">
+                <div class="who"><strong id="whoName">—</strong><span id="whoEmail"></span></div>
+                <button class="btn-exit" id="btnLogout"><i class="fas fa-right-from-bracket"></i> Sair</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="panel">
+        <div class="panel-title">
+            <div>
+                <h1>Meus projetos</h1>
+                <p>Tudo que você contratou com a Juca Informática, em um só lugar.</p>
+            </div>
+        </div>
+        <div class="cards-grid" id="grid">
+            <div class="empty"><i class="fas fa-spinner fa-spin"></i>Carregando seus projetos...</div>
+        </div>
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script>
+        const SUPABASE_URL = 'https://klpbqpcwdhuegcmoqspj.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_bPZBZOZQs01sI9yR85lfkg_9wVK41xi';
+        const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        const STATUS = {
+            orcamento:     { label: 'Orçamento',    icon: 'fa-file-invoice-dollar' },
+            em_andamento:  { label: 'Em andamento', icon: 'fa-gear' },
+            concluido:     { label: 'Concluído',    icon: 'fa-circle-check' },
+            pausado:       { label: 'Pausado',      icon: 'fa-pause-circle' }
+        };
+
+        function fmtDate(iso) {
+            if (!iso) return '';
+            return new Date(iso + (iso.length === 10 ? 'T12:00:00' : '')).toLocaleDateString('pt-BR');
+        }
+
+        function toast(text, err) {
+            const t = document.getElementById('toast');
+            t.textContent = text;
+            t.className = 'toast show' + (err ? ' err' : '');
+            setTimeout(() => t.classList.remove('show'), 3500);
+        }
+
+        function esc(s) {
+            return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        }
+
+        function card(p) {
+            const st = STATUS[p.status] || STATUS.orcamento;
+            const prog = Math.max(0, Math.min(100, p.progresso || 0));
+            return `
+            <div class="proj-card">
+                <div class="proj-top">
+                    <h3>${esc(p.titulo)}</h3>
+                    <span class="badge ${p.status}"><i class="fas ${st.icon}"></i> ${st.label}</span>
+                </div>
+                ${p.descricao ? `<p class="desc">${esc(p.descricao)}</p>` : ''}
+                <div class="progress-wrap">
+                    <div class="progress-label"><span>Andamento</span><span>${prog}%</span></div>
+                    <div class="progress"><div style="width:${prog}%"></div></div>
+                </div>
+                <div class="proj-meta">
+                    <span><i class="fas fa-calendar"></i> ${fmtDate(p.data_inicio)}${p.data_fim ? ' → ' + fmtDate(p.data_fim) : ''}</span>
+                </div>
+                ${p.observacoes ? `<p class="proj-notes">${esc(p.observacoes)}</p>` : ''}
+            </div>`;
+        }
+
+        (async () => {
+            const { data: { session } } = await sb.auth.getSession();
+            if (!session) { window.location.href = 'login.html'; return; }
+            const user = session.user;
+
+            document.getElementById('whoName').textContent = user.user_metadata?.full_name || user.email.split('@')[0];
+            document.getElementById('whoEmail').textContent = user.email;
+
+            document.getElementById('btnLogout').addEventListener('click', async () => {
+                await sb.auth.signOut();
+                window.location.href = 'login.html';
+            });
+
+            // admin é redirecionado; cliente vê só o que é dele (RLS no banco)
+            const { data: prof } = await sb.from('admin_profiles').select('role').eq('id', user.id).maybeSingle();
+            if (prof?.role === 'admin') { window.location.href = 'admin.html'; return; }
+
+            const { data: projetos, error } = await sb.from('client_projects')
+                .select('*').order('created_at', { ascending: false });
+
+            const grid = document.getElementById('grid');
+            if (error) {
+                grid.innerHTML = `<div class="empty"><i class="fas fa-triangle-exclamation"></i>${esc(error.message)}</div>`;
+                return;
+            }
+            if (!projetos || projetos.length === 0) {
+                grid.innerHTML = `<div class="empty"><i class="fas fa-folder-open"></i>Nenhum projeto cadastrado ainda.<br>Fale com a Juca Informática pelo WhatsApp para contratar ou liberar seu acesso.</div>`;
+                return;
+            }
+            grid.innerHTML = projetos.map(card).join('');
+        })();
+    </script>
+</body>
+</html>
