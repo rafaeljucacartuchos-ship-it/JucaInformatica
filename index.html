@@ -1,250 +1,318 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P9BH4CN7');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/logo.png" type="image/png">
-    <title> Juca Cartuchos E Informática</title>
+    <link rel="icon" href="https://klpbqpcwdhuegcmoqspj.supabase.co/storage/v1/object/public/site/img/logo.png" type="image/png">
+    <title>Juca Informática — Solução e Tecnologia</title>
+    <meta name="description" content="Juca Informática — Solução e Tecnologia em Nova Andradina-MS. Manutenção de computadores e impressoras, aluguel de impressoras, cabeamento estruturado, automação, relógio de ponto, venda de equipamentos e móveis para escritório.">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P9BH4CN7');</script>
+    <!-- End Google Tag Manager -->
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9BH4CN7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <header>
-        <img src="img/logo.png" alt="JUC@ CARTUCHOS E Informática" height="250">
-    </header>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9BH4CN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-    <section id="navbar">
-        <nav>
-            <div class="nav-left">
+    <header class="site-header" id="siteHeader">
+        <div class="container header-inner">
+            <a href="#home" class="brand">
+                <img src="https://klpbqpcwdhuegcmoqspj.supabase.co/storage/v1/object/public/site/img/logo-header.png" alt="Juca Informática — Solução e Tecnologia" class="brand-logo">
+            </a>
+            <nav class="main-nav" id="mainNav">
                 <ul class="nav-links">
                     <li><a href="#home">Início</a></li>
-                    <li><a href="#servicos"> Serviços</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#trabalhos">Trabalhos</a></li>
                     <li><a href="#contato">Contato</a></li>
+                    <li><a href="login.html" class="btn btn-outline btn-small nav-login"><i class="fas fa-right-to-bracket"></i> Área do Cliente</a></li>
                 </ul>
-            </div>
-            <ul class="nav-right">
-                <li>
-                    <a href="https://www.instagram.com/jucac_artuchos/" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://wa.me/556796544981" target="_blank" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </section>
-    
-    
-    <section id="home">
-        <h2>Bem-vindo à Juca Cartuchos e Informática!</h2>
-        <p>Oferecemos uma variedade de serviços para atender suas necessidades tecnológicas.</p>
-    </section>
-
-
-    <section id="servicos">
-        <h2>Nossos Serviços</h2>
-        <div class="servicos-container">
-            <div class="servico"><i class="fa-solid fa-print" onclick="abrirModal('modal7')"></i><p>Aluguel de Impressoras</p></div>
-            <div class="servico"><i class="fas fa-laptop" onclick="abrirModal('modal1')"></i><p>Manutenção de Computadores</p></div>
-            <div class="servico"><i class="fas fa-print" onclick="abrirModal('modal2')"></i><p>Manutenção de Impressoras</p></div>
-            <div class="servico"><i class="fas fa-network-wired" onclick="abrirModal('modal3')"></i><p>Cabeamento Estruturado</p></div>
-            <div class="servico"><i class="fas fa-shopping-cart" onclick="abrirModal('modal4')"></i><p>Venda de Equipamentos de Informática</p></div>
-            <div class="servico"><i class="fa-solid fa-server" onclick="abrirModal('modal5')"></i><p>Venda de Móveis Para Escritório</p></div>
-            <div class="servico"><i class="fa-solid fa-robot" onclick="abrirModal('modal6')"></i><p>Automação Residencial e Comercial</p></div>
-            <div class="servico"><i class="fa-solid fa-clock" onclick="abrirModal('modal8')"></i><p>Relógio Ponto</p></div>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-    </section>
-    
+    </header>
 
-    <section id="contato">
-        <div class="contact-container">
-            <!-- Coluna de Informações de Contato e Mapa -->
-            <div class="contact-right">
-                <h2>Nosso Contato</h2>
-                <div class="contact-info">
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556796544981" target="_blank">(67) 99654-4981</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/TX7n4nNLacdu6NLg6" target="_blank">Rua Vearni Castro, 1515 - Centro, Nova Andradina - MS</a></p>
+    <section id="home" class="hero">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <span class="hero-badge">Solução e Tecnologia</span>
+                <h1>Tecnologia que resolve.<br>Atendimento que <span class="accent">funciona</span>.</h1>
+                <p class="hero-sub">Manutenção, redes, automação e suprimentos para empresas e residências em Nova Andradina e região — com suporte técnico de verdade, do orçamento ao pós-venda.</p>
+                <div class="hero-actions">
+                    <a href="#contato" class="btn btn-primary">Peça um orçamento</a>
+                    <a href="#servicos" class="btn btn-ghost">Ver serviços</a>
                 </div>
-    
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.802181065406!2d-53.35325152488332!3d-22.247583179724543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x948e7ce2891e3ae7%3A0x6c5344554cd19bf2!2sJuca%20Cartuchos%20e%20Inform%C3%A1tica!5e0!3m2!1spt-BR!2sbr!4v1728947681587!5m2!1spt-BR!2sbr"  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="hero-stats">
+                    <div class="stat"><strong>8</strong><span>linhas de serviço</span></div>
+                    <div class="stat"><strong>100%</strong><span>atendimento local</span></div>
+                    <div class="stat"><strong>10x</strong><span>parcelamento sem juros</span></div>
                 </div>
             </div>
-    
-            <!-- Coluna do Formulário de Contato -->
-            <div class="contact-left">
-                <h2>Fale Conosco</h2>
-                <p>Entre em contato preenchendo o formulário abaixo ou diretamente pelo WhatsApp.</p>
-                
-                <form id="contactForm" class="contact-form">
-                    <input type="text" name="nome" placeholder="Seu Nome" required>
-                    <input type="email" name="email" placeholder="Seu Email" required>
-                    <textarea name="mensagem" placeholder="Sua Mensagem" required></textarea>
-                    <button type="submit">Enviar Mensagem</button>
-                </form>
-                <div id="formMessage"></div> <!-- Div para mostrar mensagem de sucesso/erro -->
+            <div class="hero-visual">
+                <img src="https://klpbqpcwdhuegcmoqspj.supabase.co/storage/v1/object/public/site/img/logo.png" alt="Juca Informática" class="hero-logo">
             </div>
         </div>
     </section>
-    
+
+    <section id="servicos" class="section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">O que fazemos</span>
+                <h2>Nossos serviços</h2>
+                <p>Clique em um serviço para ver os detalhes e falar direto no WhatsApp.</p>
+            </div>
+            <div class="servicos-grid">
+                <div class="servico-card" data-modal="modal1">
+                    <div class="servico-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Manutenção de Computadores</h3>
+                    <p>Formatação, limpeza, upgrades e reparos para sua máquina rodar como nova.</p>
+                    <span class="servico-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="servico-card" data-modal="modal2">
+                    <div class="servico-icon"><i class="fas fa-print"></i></div>
+                    <h3>Manutenção de Impressoras</h3>
+                    <p>Jato de tinta, laser e multifuncionais — com peças originais e garantia.</p>
+                    <span class="servico-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="servico-card" data-modal="modal3">
+                    <div class="servico-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Cabeamento Estruturado</h3>
+                    <p>Projetos de rede para empresas: cabos, pontos de acesso e roteadores.</p>
+                    <span class="servico-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="servico-card" data-modal="modal4">
+                    <div class="servico-icon"><i class="fas fa-cart-shopping"></i></div>
+                    <h3>Venda de Equipamentos</h3>
+                    <p>Computadores, notebooks, monitores e periféricos das principais marcas.</p>
+                    <span class="servico-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="servico-card" data-modal="modal5">
+                    <div class="servico-icon"><i class="fas fa-chair"></i></div>
+                    <h3>Móveis para Escritório</h3>
+                    <p>Mesas, cadeiras ergonômicas e móveis sob medida para seu espaço.</p>
+                    <span class="servico-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="servico-card" data-modal="modal6">
+                    <div class="servico-icon"><i class="fas fa-house-signal"></i></div>
+                    <h3>Automação Residencial e Comercial</h3>
+                    <p>Iluminação, climatização, segurança e áudio/vídeo integrados.</p>
+                    <span class="servico-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="servico-card" data-modal="modal7">
+                    <div class="servico-icon"><i class="fas fa-copy"></i></div>
+                    <h3>Aluguel de Impressoras</h3>
+                    <p>HP, Brother, Canon e Epson com manutenção e suporte inclusos.</p>
+                    <span class="servico-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="servico-card" data-modal="modal8">
+                    <div class="servico-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Relógio de Ponto</h3>
+                    <p>Venda e instalação com suporte completo para controle de jornada.</p>
+                    <span class="servico-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trabalhos" class="section section-alt">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">Portfólio</span>
+                <h2>Trabalhos realizados</h2>
+                <p>Projetos e serviços entregues pela Juca Informática.</p>
+            </div>
+            <div class="trabalhos-grid">
+                <article class="trabalho-card">
+                    <div class="trabalho-thumb thumb-1"><i class="fas fa-network-wired"></i></div>
+                    <div class="trabalho-body">
+                        <div class="trabalho-tags"><span>Redes</span><span>Empresa</span></div>
+                        <h3>Rede estruturada — Escritório de contabilidade</h3>
+                        <p>Projeto e instalação de cabeamento estruturado com 24 pontos de rede, patch panel e configuração de roteadores.</p>
+                    </div>
+                </article>
+                <article class="trabalho-card">
+                    <div class="trabalho-thumb thumb-2"><i class="fas fa-print"></i></div>
+                    <div class="trabalho-body">
+                        <div class="trabalho-tags"><span>Impressoras</span><span>Contrato</span></div>
+                        <h3>Frota de impressoras — Escritório de advocacia</h3>
+                        <p>Aluguel de 4 impressoras multifuncionais com manutenção preventiva mensal e suprimentos inclusos.</p>
+                    </div>
+                </article>
+                <article class="trabalho-card">
+                    <div class="trabalho-thumb thumb-3"><i class="fas fa-house-signal"></i></div>
+                    <div class="trabalho-body">
+                        <div class="trabalho-tags"><span>Automação</span><span>Residencial</span></div>
+                        <h3>Automação residencial — Nova Andradina</h3>
+                        <p>Controle de iluminação, climatização e câmeras via aplicativo, com rotinas automatizadas.</p>
+                    </div>
+                </article>
+                <article class="trabalho-card">
+                    <div class="trabalho-thumb thumb-4"><i class="fas fa-clock"></i></div>
+                    <div class="trabalho-body">
+                        <div class="trabalho-tags"><span>Ponto</span><span>Comércio</span></div>
+                        <h3>Relógios de ponto — Rede de lojas</h3>
+                        <p>Fornecimento e instalação de relógios de ponto com sistema de gestão de jornada integrado.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">Fale conosco</span>
+                <h2>Contato</h2>
+                <p>Preencha o formulário ou chame no WhatsApp — respondemos rápido.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-left">
+                    <h3>Envie sua mensagem</h3>
+                    <p>Preencha o formulário e continue a conversa direto no nosso WhatsApp.</p>
+                    <form id="contactForm" class="contact-form">
+                        <input type="text" name="nome" placeholder="Seu nome" required>
+                        <input type="text" name="assunto" placeholder="Assunto (ex: orçamento de impressora)" required>
+                        <textarea name="mensagem" placeholder="Sua mensagem" rows="4" required></textarea>
+                        <button type="submit" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Enviar via WhatsApp</button>
+                    </form>
+                    <div id="formMessage"></div>
+                </div>
+                <div class="contact-right">
+                    <h3>Nosso contato</h3>
+                    <div class="contact-info">
+                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5567996544981" target="_blank">(67) 99654-4981</a></p>
+                        <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/jucac_artuchos/" target="_blank">@jucac_artuchos</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/TX7n4nNLacdu6NLg6" target="_blank">Rua Vearni Castro, 1515 — Centro, Nova Andradina — MS</a></p>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.802181065406!2d-53.35325152488332!3d-22.247583179724543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x948e7ce2891e3ae7%3A0x6c5344554cd19bf2!2sJuca%20Cartuchos%20e%20Inform%C3%A1tica!5e0!3m2!1spt-BR!2sbr!4v1728947681587!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer id="footer">
-       
-        <div class="footer-bottom">
+        <div class="container footer-grid">
             <div class="footer-col">
-                <h3>Fale Conosco</h3>
+                <img src="https://klpbqpcwdhuegcmoqspj.supabase.co/storage/v1/object/public/site/img/logo-header.png" alt="Juca Informática" class="footer-logo">
+                <p>Solução e tecnologia para empresas e residências de Nova Andradina e região.</p>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/jucac_artuchos/" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://wa.me/556796544981" target="_blank" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+                    <a href="https://www.instagram.com/jucac_artuchos/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5567996544981" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
-            <p>&copy; 2024 Juca Cartuchos e Informática - Todos os direitos reservados.</p>
-            <p>Desenvolvido por <a href="https://wa.me/556791274985?text=Ol%C3%A1%20vim%20do%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es.
-" target="_blank">JVDev</a></p>
-            <img src="img/logo_jvdev.png" alt="Logo JVDev" width="100px">
-            
+            </div>
+            <div class="footer-col">
+                <h3>Navegação</h3>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#trabalhos">Trabalhos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="login.html">Área do Cliente</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contato</h3>
+                <ul>
+                    <li><a href="https://wa.me/5567996544981" target="_blank">(67) 99654-4981</a></li>
+                    <li><a href="https://maps.app.goo.gl/TX7n4nNLacdu6NLg6" target="_blank">Rua Vearni Castro, 1515 — Centro, Nova Andradina — MS</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Juca Informática — Solução e Tecnologia. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <span class="fechar" onclick="fecharModal('modal1')">&times;</span>
+            <span class="fechar" data-fechar="modal1">&times;</span>
             <h2>Manutenção de Computadores</h2>
-            <p>Oferecemos serviços completos de manutenção de computadores...</p>
-            <a href="https://wa.me/556796544981?text=Olá!%20Gostaria%20de%20informações%20sobre%20Manutenção%20de%20Computadores." 
-               target="_blank" 
-               class="whatsapp-link" 
-               aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
-            </a>
+            <p>Serviços completos de manutenção: formatação com backup, limpeza, troca de peças, upgrades de memória e SSD, remoção de vírus e otimização.</p>
+            <a href="https://wa.me/5567996544981?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Manuten%C3%A7%C3%A3o%20de%20Computadores." target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp</a>
         </div>
     </div>
-    
 
     <div id="modal2" class="modal">
         <div class="modal-content">
-            <span class="fechar" onclick="fecharModal('modal2')">&times;</span>
-            <h2>Manuntenção de Impressoras</h2>
-            <p>Nossa equipe é especializada na manutenção e conserto de impressoras de todas as marcas. Realizamos serviços como troca de cartuchos, limpeza, ajuste de software, e muito mais. Atuamos com impressoras jato de tinta, laser e multifuncionais.</p>
-            <p><strong>Peças originais:</strong> Trabalhamos apenas com peças originais ou de alta qualidade para garantir o melhor desempenho.</p>
-            <a href="https://wa.me/556796544981?text=Olá!%20Gostaria%20de%20informações%20sobre%20Manutenção%20de%20Impressoras." 
-               target="_blank" 
-               class="whatsapp-link" 
-               aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
-            </a>
+            <span class="fechar" data-fechar="modal2">&times;</span>
+            <h2>Manutenção de Impressoras</h2>
+            <p>Equipe especializada na manutenção e conserto de impressoras de todas as marcas: troca de cartuchos, limpeza, ajuste de software e muito mais. Atuamos com jato de tinta, laser e multifuncionais.</p>
+            <p><strong>Peças originais:</strong> trabalhamos apenas com peças originais ou de alta qualidade.</p>
+            <a href="https://wa.me/5567996544981?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Manuten%C3%A7%C3%A3o%20de%20Impressoras." target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp</a>
         </div>
     </div>
 
     <div id="modal3" class="modal">
         <div class="modal-content">
-            <span class="fechar" onclick="fecharModal('modal3')">&times;</span>
+            <span class="fechar" data-fechar="modal3">&times;</span>
             <h2>Cabeamento Estruturado</h2>
-            <p>Instalamos redes de cabeamento estruturado de alta qualidade para empresas e residências. Garantimos organização e eficiência para que sua rede tenha uma alta performance com manutenção mínima.</p>
-            <p><strong>Serviços oferecidos:</strong> Instalação de cabos de rede, pontos de acesso e configurações de roteadores.</p>
-            <a href="https://wa.me/556796544981?text=Olá!%20Gostaria%20de%20informações%20sobre%20Cabeamento%20Estruturado." 
-               target="_blank" 
-               class="whatsapp-link" 
-               aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
-            </a>
+            <p>Instalamos redes de cabeamento estruturado de alta qualidade para empresas e residências. Garantimos organização e eficiência para que sua rede tenha alta performance com manutenção mínima.</p>
+            <p><strong>Serviços oferecidos:</strong> instalação de cabos de rede, pontos de acesso e configuração de roteadores.</p>
+            <a href="https://wa.me/5567996544981?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Cabeamento%20Estruturado." target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp</a>
         </div>
     </div>
 
     <div id="modal4" class="modal">
         <div class="modal-content">
-            <span class="fechar" onclick="fecharModal('modal4')">&times;</span>
+            <span class="fechar" data-fechar="modal4">&times;</span>
             <h2>Venda de Equipamentos de Informática</h2>
-            <p>Oferecemos uma ampla variedade de equipamentos de informática, incluindo computadores, notebooks, monitores, teclados e mouses de diversas marcas e para todas as necessidades, desde o uso básico até o profissional.</p>
+            <p>Ampla variedade de equipamentos: computadores, notebooks, monitores, teclados e mouses para todas as necessidades, do uso básico ao profissional.</p>
             <p><strong>Marcas principais:</strong> Dell, HP, Acer, Asus, Logitech.</p>
-            <p><strong>Formas de pagamento:</strong> À vista ou parcelado em até 10 vezes.</p>
-            <a href="https://wa.me/556796544981?text=Olá!%20Gostaria%20de%20informações%20sobre%2Equipamentos%20de%20Informática." 
-               target="_blank" 
-               class="whatsapp-link" 
-               aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
-            </a>
+            <p><strong>Formas de pagamento:</strong> à vista ou parcelado em até 10 vezes.</p>
+            <a href="https://wa.me/5567996544981?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Equipamentos%20de%20Inform%C3%A1tica." target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp</a>
         </div>
     </div>
 
     <div id="modal5" class="modal">
         <div class="modal-content">
-            <span class="fechar" onclick="fecharModal('modal5')">&times;</span>
-            <h2>Venda de Moveis</h2>
-            <p>Oferecemos uma ampla seleção de móveis para escritório que combinam funcionalidade, conforto e design moderno. Desde mesas ergonômicas até cadeiras ajustáveis, temos tudo o que você precisa para criar um ambiente de trabalho eficiente e confortável.</p>
-            <p><strong>Principais produtos:</strong> Mesas, cadeiras ergonômicas, estantes, armários e mesas de reunião.</p>
-            <p><strong>Personalização:</strong> Opções de personalização para atender o estilo e as necessidades do seu escritório, com diferentes tamanhos, cores e acabamentos.</p>
-            <p><strong>Condições de pagamento:</strong> Oferecemos pagamento facilitado com parcelamento em até 10 vezes.</p>
-            <a href="https://wa.me/556796544981?text=Olá!%20Gostaria%20de%20informações%20sobre%20Moveis%20para%20Escritorio." 
-               target="_blank" 
-               class="whatsapp-link" 
-               aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
-            </a>
+            <span class="fechar" data-fechar="modal5">&times;</span>
+            <h2>Venda de Móveis para Escritório</h2>
+            <p>Móveis que combinam funcionalidade, conforto e design moderno: mesas ergonômicas, cadeiras ajustáveis, estantes, armários e mesas de reunião.</p>
+            <p><strong>Personalização:</strong> diferentes tamanhos, cores e acabamentos.</p>
+            <p><strong>Condições:</strong> parcelamento em até 10 vezes.</p>
+            <a href="https://wa.me/5567996544981?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20M%C3%B3veis%20para%20Escrit%C3%B3rio." target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp</a>
         </div>
     </div>
 
     <div id="modal6" class="modal">
         <div class="modal-content">
-            <span class="fechar" onclick="fecharModal('modal6')">&times;</span>
+            <span class="fechar" data-fechar="modal6">&times;</span>
             <h2>Automação Comercial e Residencial</h2>
-            <p>Transforme sua casa ou negócio com nossas soluções de automação, que incluem controle de iluminação, climatização, segurança e sistemas audiovisuais. Oferecemos suporte completo desde a instalação até a manutenção.</p>
-            <p><strong>Soluções personalizadas:</strong> Desenvolvemos soluções sob medida para suas necessidades, integrando tecnologias de ponta.</p>
-            <a href="https://wa.me/556796544981?text=Olá!%20Gostaria%20de%20informações%20sobre%20Automção%20Residencial%20e%20Comercial." 
-               target="_blank" 
-               class="whatsapp-link" 
-               aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
-            </a>
+            <p>Transforme sua casa ou negócio com soluções de automação: controle de iluminação, climatização, segurança e sistemas audiovisuais, com suporte completo da instalação à manutenção.</p>
+            <p><strong>Soluções personalizadas:</strong> projetos sob medida integrando tecnologias de ponta.</p>
+            <a href="https://wa.me/5567996544981?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Automa%C3%A7%C3%A3o%20Residencial%20e%20Comercial." target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp</a>
         </div>
     </div>
+
     <div id="modal7" class="modal">
         <div class="modal-content">
-            <span class="fechar" onclick="fecharModal('modal7')">&times;</span>
+            <span class="fechar" data-fechar="modal7">&times;</span>
             <h2>Aluguel de Impressoras</h2>
-            <p>Aluguel de impressoras para empresas, escritórios e residências! Disponibilizamos modelos de alta qualidade das marcas HP, Samsung, Brother, Canon e Epson, com manutenção e suporte inclusos. Tenha uma solução prática e econômica para o seu dia a dia, sem preocupações com suprimentos. Entre em contato e descubra como o aluguel de impressoras pode facilitar sua rotina.</p>
-            <a href="https://wa.me/556796544981?text=Olá!%20Gostaria%20de%20informações%20sobre%20Aluguel%20de%20Impressoras." 
-               target="_blank" 
-               class="whatsapp-link" 
-               aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
-            </a>
+            <p>Aluguel de impressoras para empresas, escritórios e residências: modelos de alta qualidade HP, Samsung, Brother, Canon e Epson, com manutenção e suporte inclusos. Solução prática e econômica, sem preocupação com suprimentos.</p>
+            <a href="https://wa.me/5567996544981?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Aluguel%20de%20Impressoras." target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp</a>
         </div>
     </div>
-    <div id="modal8" class="modal">
-            <div class="modal-content">
-                <span class="fechar" onclick="fecharModal('modal8')">&times;</span>
-                <h2>Relogio Ponto</h2>
-                <p>Venda e instalação de relógios de ponto para empresas! Soluções modernas e confiáveis para controle de jornada, facilitando a gestão de presença dos colaboradores. Oferecemos modelos avançados, com suporte técnico especializado desde a instalação até o acompanhamento. Garanta um sistema eficiente e seguro para o seu negócio. Entre em contato para saber mais!</p>
-                <a href="https://wa.me/556796544981?text=Olá!%20Gostaria%20de%20informações%20sobre%20Relogio%20Ponto." 
-               target="_blank" 
-               class="whatsapp-link" 
-               aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
-            </a>
-            </div>
 
-    <a href="https://wa.me/556796544981" class="whatsapp-float" target="_blank">
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+            <span class="fechar" data-fechar="modal8">&times;</span>
+            <h2>Relógio de Ponto</h2>
+            <p>Venda e instalação de relógios de ponto para empresas: controle de jornada moderno e confiável, com suporte técnico especializado da instalação ao acompanhamento.</p>
+            <a href="https://wa.me/5567996544981?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Rel%C3%B3gio%20de%20Ponto." target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp</a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5567996544981" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
