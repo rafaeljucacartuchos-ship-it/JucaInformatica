@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://klpbqpcwdhuegcmoqspj.supabase.co/storage/v1/object/public/site/img/logo.png" type="image/png">
+    <title>Área do Cliente — Juca Informática</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+</head>
+<body class="auth-body">
+    <div class="auth-wrap">
+        <div class="auth-card">
+            <img src="https://klpbqpcwdhuegcmoqspj.supabase.co/storage/v1/object/public/site/img/logo-header.png" alt="Juca Informática" class="auth-logo">
+            <h1>Área do Cliente</h1>
+            <p class="auth-sub">Acesse seus projetos contratados e acompanhe o andamento.</p>
+
+            <form id="loginForm">
+                <div class="auth-field">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="voce@empresa.com.br" autocomplete="email" required>
+                </div>
+                <div class="auth-field">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Sua senha" autocomplete="current-password" required>
+                </div>
+                <button type="submit" class="auth-btn" id="btnLogin">
+                    <i class="fas fa-right-to-bracket"></i> Entrar
+                </button>
+                <div class="auth-msg" id="loginMsg"></div>
+            </form>
+
+            <a href="index.html" class="auth-back"><i class="fas fa-arrow-left"></i> Voltar ao site</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script>
+        const SUPABASE_URL = 'https://klpbqpcwdhuegcmoqspj.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_bPZBZOZQs01sI9yR85lfkg_9wVK41xi';
+        const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // já logado? vai direto pro portal
+        sb.auth.getSession().then(({ data }) => {
+            if (data?.session) window.location.href = 'portal.html';
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const msg = document.getElementById('loginMsg');
+            const btn = document.getElementById('btnLogin');
+            btn.disabled = true;
+            msg.textContent = 'Entrando...';
+            msg.className = 'auth-msg';
+            const email = document.getElementById('email').value.trim();
+            const senha = document.getElementById('senha').value;
+            const { error } = await sb.auth.signInWithPassword({ email, password: senha });
+            if (error) {
+                msg.textContent = error.message === 'Invalid login credentials'
+                    ? 'E-mail ou senha incorretos.'
+                    : 'Erro: ' + error.message;
+                msg.classList.add('err');
+                btn.disabled = false;
+            } else {
+                window.location.href = 'portal.html';
+            }
+        });
+    </script>
+</body>
+</html>
