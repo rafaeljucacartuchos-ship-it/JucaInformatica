@@ -12,3 +12,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const chat = document.getElementById('whatsappChat'), chatOpen = document.getElementById('whatsappChatOpen'), chatClose = document.getElementById('whatsappChatClose');
     if (chat && chatOpen) { chatOpen.addEventListener('click', () => { const aberto = chat.classList.toggle('open'); chatOpen.setAttribute('aria-expanded', aberto ? 'true' : 'false'); const aviso = chatOpen.querySelector('.whatsapp-notify'); if (aviso && aberto) aviso.remove(); }); chatClose?.addEventListener('click', () => { chat.classList.remove('open'); chatOpen.setAttribute('aria-expanded', 'false'); }); }
 });
+// Ativa o monitoramento comportamental depois que o Supabase da página carregar.
+if (!document.querySelector('script[src*="analytics.js"]')) { const a=document.createElement('script'); a.src='analytics.js?v=1'; document.body.appendChild(a); }
