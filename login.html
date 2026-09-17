@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://klpbqpcwdhuegcmoqspj.supabase.co/storage/v1/object/public/site/img/logo.png" type="image/png">
     <title>Área do Cliente — Juca Informática</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=7">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +42,9 @@
         const SUPABASE_URL = 'https://klpbqpcwdhuegcmoqspj.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_bPZBZOZQs01sI9yR85lfkg_9wVK41xi';
         const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // registro de visita
+        try { sb.from('site_visits').insert({ page: location.pathname, referrer: document.referrer || null, user_agent: navigator.userAgent.slice(0,180) }); } catch(e) {}
 
         // já logado? vai direto pro portal
         sb.auth.getSession().then(({ data }) => {
