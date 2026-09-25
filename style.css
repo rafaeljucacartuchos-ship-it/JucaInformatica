@@ -423,3 +423,12 @@ h2 .company-wordmark,h3 .company-wordmark { width:145px; height:53px; }
 @media(max-width:1050px) { #footer .footer-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } .help-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:650px) { #footer .footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } #footer .footer-col:first-child { grid-column:1/-1; } .help-grid,.help-contacts { grid-template-columns:1fr; } }
 @media(max-width:380px) { #footer .footer-grid { grid-template-columns:1fr; } }
+
+.service-detail { background:#edf3f9; padding:42px 0 64px; min-height:65vh; }
+.detail-back { display:inline-block; color:#215c93; margin-bottom:24px; font-weight:600; }
+.detail-content { background:white; border:1px solid #d5e2ef; padding:clamp(24px,4vw,48px); border-radius:18px; max-width:850px; }
+.detail-content h1 { font-size:clamp(2rem,4vw,3rem); color:#123253; margin-bottom:16px; }
+.detail-content>strong { color:#345b80; display:block; font-size:1.1rem; }
+.detail-content>p { color:#5e7388; line-height:1.8; font-size:1rem; margin:20px 0 28px; max-width:700px; }
+.help-choice:hover { border-color:#2d80dd; box-shadow:0 8px 24px #15355014; }
+.help-choice>span { margin-top:auto; color:#155ba3; font-weight:700; font-size:.85rem; }
