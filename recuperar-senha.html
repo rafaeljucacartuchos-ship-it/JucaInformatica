@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Nova senha — Juca Informática</title>
+  <link rel="stylesheet" href="style.css?v=8">
+</head>
+<body class="auth-body">
+  <main class="auth-wrap"><div class="auth-card">
+    <h1>Criar nova senha</h1>
+    <p class="auth-sub">Escolha uma senha com pelo menos 8 caracteres.</p>
+    <p id="recoveryStatus" class="auth-msg" role="status" aria-live="polite">Verificando seu link...</p>
+    <form id="passwordForm" hidden>
+      <div class="auth-field"><label for="newPassword">Nova senha</label><input id="newPassword" type="password" autocomplete="new-password" minlength="8" required></div>
+      <div class="auth-field"><label for="confirmPassword">Confirme a senha</label><input id="confirmPassword" type="password" autocomplete="new-password" minlength="8" required></div>
+      <button id="savePassword" class="auth-btn" type="submit">Salvar nova senha</button>
+    </form>
+    <a class="auth-back" href="login.html">Voltar para o login</a>
+  </div></main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="recuperar-senha.js?v=1"></script>
+</body>
+</html>
