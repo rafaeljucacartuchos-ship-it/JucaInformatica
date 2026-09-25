@@ -386,7 +386,7 @@ h2 .company-wordmark,h3 .company-wordmark { width:145px; height:53px; }
 #historia { scroll-margin-top:115px; }
 
 /* Product stages: a soft blue backdrop keeps equipment details visible. */
-.commercial-photo.brand-product-stage { background:radial-gradient(ellipse at 50% 40%,#fff 20%,#e8f2fc 70%,#d6e6f6); padding:54px 20px 16px; }
+.commercial-photo.brand-product-stage { background:radial-gradient(ellipse at 50% 40%,#edf5fd 20%,#e8f2fc 70%,#d6e6f6); padding:54px 20px 16px; }
 .brand-product-stage .commercial-badge { background:#174e84; color:#fff; }
 .brand-product-stage .rental-slide img { height:265px; filter:drop-shadow(0 10px 8px #16395720); }
 .brand-product-stage .rental-slide figcaption { font-size:.84rem; min-height:3em; line-height:1.4; }
@@ -399,3 +399,8 @@ h2 .company-wordmark,h3 .company-wordmark { width:145px; height:53px; }
 .rental-card .brand-product-stage .rental-slide figcaption { font-size:.84rem; }
 .rental-card .brand-product-stage .commercial-badge { background:#174e84; }
 @media(max-width:600px) { .rental-card .brand-product-stage .rental-slide img { height:250px; } }
+
+/* Blend white photo backgrounds into the blue stage without altering source photos. */
+.brand-product-stage { isolation:isolate; }
+.brand-product-stage .rental-slide.is-active { opacity:1; }
+.brand-product-stage .rental-slide img { mix-blend-mode:multiply; filter:none; }
