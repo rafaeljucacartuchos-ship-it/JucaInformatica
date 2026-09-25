@@ -1,4 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const track = document.getElementById('productTrack');
+  if (track) {
+    const slides = [...track.children], pause = document.getElementById('productsPause');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    let index = 0, paused = reduced.matches;
+    track.classList.add('photo-banner');
+    function show(next) {
+      index = (next + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const active = i === index;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', String(!active));
+        slide.inert = !active;
+      });
+      document.getElementById('productPosition').textContent = (index + 1) + ' de ' + slides.length;
+    }
+    function updatePause() {
+      pause.textContent = paused ? 'Reproduzir' : 'Pausar';
+      pause.setAttribute('aria-label', paused ? 'Iniciar rotação automática' : 'Pausar rotação automática');
+    }
+    document.getElementById('productsPrev').onclick = () => show(index - 1);
+    document.getElementById('productsNext').onclick = () => show(index + 1);
+    pause.onclick = () => { paused = !paused; updatePause(); };
+    track.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); show(index + (e.key === 'ArrowRight' ? 1 : -1)); }
+    });
+    reduced.addEventListener('change', () => { paused = reduced.matches; updatePause(); });
+    setInterval(() => {
+      const bounds = track.getBoundingClientRect();
+      if (!paused && !document.hidden && !track.contains(document.activeElement) && bounds.top < innerHeight && bounds.bottom > 0) show(index + 1);
+    }, 4000);
+    show(0); updatePause();
+  }
   const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
   const header = document.getElementById('siteHeader');
   if (header) window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10), { passive: true });

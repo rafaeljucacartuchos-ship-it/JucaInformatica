@@ -4,6 +4,10 @@ Site institucional estático, com área do cliente e administração integradas 
 
 ## Melhorias desta revisão
 
+- Página principal em azul-marinho, logomarca original nas identificações visíveis e destaque para locação de impressoras, Topdata e Toledo/Prix autorizadas.
+- Banner com fotos de referência de 13 categorias, troca automática a cada quatro segundos, pausa e navegação manual. Respeita a preferência por movimento reduzido e protege o foco de teclado nas imagens ocultas.
+- Fotografias de terceiros são referências de categorias, não garantia de estoque. Os endereços externos podem mudar; substituir por fotos próprias ou fornecidas pelos fabricantes conforme o catálogo real da loja.
+
 - Estatísticas com datas de Mato Grosso do Sul, consulta paginada e período completo sem corte de 365 dias.
 - Abertura do balão separada do clique para WhatsApp; envio pelo formulário também contado, sem armazenar nome ou mensagem do visitante nos eventos.
 - Conversão calculada por sessão; origens e dispositivos também contados por sessão.

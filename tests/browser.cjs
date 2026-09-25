@@ -61,6 +61,20 @@ const server = http.createServer((req, res) => {
     fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
     await page.screenshot({path:path.join(root,'test-results/mobile.png'),fullPage:true});
     console.log('PASS mobile layout, menu, blocked-popup fallback and distinct chat event');
+    await page.locator('#produtos').scrollIntoViewIfNeeded();
+    await page.locator('#contactName').blur();
+    const firstPosition=await page.locator('#productPosition').innerText();
+    await page.waitForFunction(previous=>document.getElementById('productPosition').textContent!==previous,firstPosition,{timeout:6500});
+    await page.locator('#productsPause').click();
+    const pausedPosition=await page.locator('#productPosition').innerText();
+    await page.waitForTimeout(4300);
+    assert.equal(await page.locator('#productPosition').innerText(),pausedPosition);
+    await page.locator('#productsNext').click();
+    assert.notEqual(await page.locator('#productPosition').innerText(),pausedPosition);
+    assert.equal(await page.locator('.product-slide.is-active').count(),1);
+    assert.equal(await page.locator('.product-slide').count(),13);
+    assert.equal(await page.locator('.product-slide:not(.is-active)').evaluateAll(slides=>slides.every(slide=>slide.inert)),true);
+    console.log('PASS automatic banner, pause, manual navigation and hidden-slide focus protection');
     await page.goto(base+'/login.html');
     // Stop the automatic redirect by loading the login with a signed-out fixture.
     await page.route('**/supabase-js@*/**',r=>r.fulfill({contentType:'text/javascript',body:mock+'\nfixture.user=null;'}));
