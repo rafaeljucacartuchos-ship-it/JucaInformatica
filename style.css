@@ -393,3 +393,9 @@ h2 .company-wordmark,h3 .company-wordmark { width:145px; height:53px; }
 .brand-product-stage .rental-controls button { background:#fff; }
 .brand-product-stage .rental-controls { margin-bottom:0; }
 @media(max-width:600px) { .brand-product-stage .rental-slide img { height:250px; } }
+
+/* Align rental photography with the authorized-brand product stages. */
+.rental-card .brand-product-stage .rental-slide img { height:265px; }
+.rental-card .brand-product-stage .rental-slide figcaption { font-size:.84rem; }
+.rental-card .brand-product-stage .commercial-badge { background:#174e84; }
+@media(max-width:600px) { .rental-card .brand-product-stage .rental-slide img { height:250px; } }
