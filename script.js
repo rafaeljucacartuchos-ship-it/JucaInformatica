@@ -1,9 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-rental-carousel]').forEach(carousel => {
+    const slides = [...carousel.querySelectorAll('.rental-slide')];
+    const pause = carousel.querySelector('[data-rental-pause]');
+    const label = carousel.dataset.carouselLabel || 'locação';
+    let index = 0, paused = false;
+    function show(next) {
+      index = (next + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('is-active', i === index);
+        slide.setAttribute('aria-hidden', String(i !== index));
+        slide.inert = i !== index;
+      });
+      carousel.querySelector('[data-rental-position]').textContent = `${index + 1} de ${slides.length}`;
+    }
+    carousel.querySelector('[data-rental-prev]').onclick = () => show(index - 1);
+    carousel.querySelector('[data-rental-next]').onclick = () => show(index + 1);
+    pause.onclick = () => {
+      paused = !paused;
+      pause.textContent = paused ? 'Reproduzir' : 'Pausar';
+      pause.setAttribute('aria-label', (paused ? 'Iniciar rotação: ' : 'Pausar rotação: ') + label);
+    };
+    setInterval(() => {
+      const bounds = carousel.getBoundingClientRect();
+      if (!paused && !document.hidden && bounds.top < innerHeight && bounds.bottom > 0) show(index + 1);
+    }, 4000);
+    show(0);
+  });
   const track = document.getElementById('productTrack');
   if (track) {
     const slides = [...track.children], pause = document.getElementById('productsPause');
-    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    let index = 0, paused = reduced.matches;
+    // Rotation starts automatically; reduced-motion is handled by CSS transitions.
+    let index = 0, paused = false;
     track.classList.add('photo-banner');
     function show(next) {
       index = (next + slides.length) % slides.length;
@@ -25,10 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     track.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); show(index + (e.key === 'ArrowRight' ? 1 : -1)); }
     });
-    reduced.addEventListener('change', () => { paused = reduced.matches; updatePause(); });
     setInterval(() => {
       const bounds = track.getBoundingClientRect();
-      if (!paused && !document.hidden && !track.contains(document.activeElement) && bounds.top < innerHeight && bounds.bottom > 0) show(index + 1);
+      if (!paused && !document.hidden && !track.querySelector('a:focus') && bounds.top < innerHeight && bounds.bottom > 0) show(index + 1);
     }, 4000);
     show(0); updatePause();
   }

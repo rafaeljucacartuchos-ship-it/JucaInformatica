@@ -36,7 +36,7 @@ const server = http.createServer((req, res) => {
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
   try {
     await page.goto(base+'/index.html');
-    await page.getByRole('button',{name:/Topdata/}).click();
+    await page.getByRole('button',{name:'Conhecer soluções Topdata',exact:true}).click();
     await page.waitForFunction(()=>document.activeElement.id==='brandModalClose');
     await page.keyboard.press('Shift+Tab');
     assert.equal(await page.locator('#brandModal').evaluate(el=>el.contains(document.activeElement)),true);
@@ -83,7 +83,7 @@ const server = http.createServer((req, res) => {
     await page.waitForFunction(()=>document.getElementById('recoveryMsg').textContent.includes('Se este'));
     const recovery=await page.evaluate(()=>calls.find(c=>c.action==='recovery'));
     assert.equal(recovery.options.redirectTo,base+'/recuperar-senha.html');
-    await page.evaluate(()=>fixture.recoveryError=true);await page.locator('#sendRecovery').click();
+    await page.evaluate(()=>fixture.recoveryError=true);await page.locator('#sendRecovery').focus();await page.keyboard.press('Enter');
     await page.waitForFunction(()=>document.getElementById('recoveryMsg').textContent.includes('Não foi possível'));
     assert.equal(await page.locator('#sendRecovery').isEnabled(),true);
     console.log('PASS password-recovery request and error retry');
