@@ -404,3 +404,22 @@ h2 .company-wordmark,h3 .company-wordmark { width:145px; height:53px; }
 .brand-product-stage { isolation:isolate; }
 .brand-product-stage .rental-slide.is-active { opacity:1; }
 .brand-product-stage .rental-slide img { mix-blend-mode:multiply; filter:none; }
+
+.customer-help { background:#edf3f9; }
+.help-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.help-card { background:#fff; border:1px solid #d5e2ef; border-radius:16px; padding:26px; display:flex; flex-direction:column; scroll-margin-top:130px; }
+.help-card h3 { color:#13395e; font-size:1.25rem; margin-bottom:10px; }
+.help-card>strong { color:#345b80; font-size:.85rem; line-height:1.5; }
+.help-card p { color:#5e7388; font-size:.9rem; line-height:1.7; margin:14px 0 22px; }
+.help-card>a { margin-top:auto; color:#155ba3; font-weight:700; font-size:.85rem; }
+.help-contacts { background:#123253; color:#fff; border-radius:16px; margin-top:24px; padding:28px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.help-contacts p { color:#bed0e2; font-size:.9rem; margin-top:10px; }
+.help-contact-links { display:grid; gap:10px; font-size:.9rem; }
+#atendimento { scroll-margin-top:110px; }
+#footer .footer-grid { display:grid; grid-template-columns:1.15fr 1fr 1fr 1fr 1.3fr; gap:24px; }
+#footer .footer-col { min-width:0; }
+#footer .footer-col a { overflow-wrap:anywhere; }
+#footer .footer-col a:hover,.help-contact-links a:hover,.help-card>a:hover { text-decoration:underline; }
+@media(max-width:1050px) { #footer .footer-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } .help-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:650px) { #footer .footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } #footer .footer-col:first-child { grid-column:1/-1; } .help-grid,.help-contacts { grid-template-columns:1fr; } }
+@media(max-width:380px) { #footer .footer-grid { grid-template-columns:1fr; } }
