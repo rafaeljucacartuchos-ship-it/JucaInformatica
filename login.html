@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://klpbqpcwdhuegcmoqspj.supabase.co/storage/v1/object/public/site/img/logo.png" type="image/png">
     <title>Área do Cliente — Juca Informática</title>
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=11">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,47 +30,23 @@
                 <button type="submit" class="auth-btn" id="btnLogin">
                     <i class="fas fa-right-to-bracket"></i> Entrar
                 </button>
-                <div class="auth-msg" id="loginMsg"></div>
+                <div class="auth-msg" id="loginMsg" role="status" aria-live="polite"></div>
             </form>
 
+            <button type="button" id="forgotPassword" class="auth-link">Esqueci minha senha</button>
+            <section id="recoveryPanel" hidden aria-label="Recuperar senha">
+                <form id="recoveryForm">
+                    <div class="auth-field"><label for="recoveryEmail">E-mail cadastrado</label><input id="recoveryEmail" type="email" autocomplete="email" required></div>
+                    <button type="submit" id="sendRecovery" class="auth-btn">Enviar link de recuperação</button>
+                    <div id="recoveryMsg" class="auth-msg" role="status" aria-live="polite"></div>
+                </form>
+                <button type="button" id="backToLogin" class="auth-link">Voltar para entrar</button>
+            </section>
             <a href="index.html" class="auth-back"><i class="fas fa-arrow-left"></i> Voltar ao site</a>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-    <script>
-        const SUPABASE_URL = 'https://klpbqpcwdhuegcmoqspj.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_bPZBZOZQs01sI9yR85lfkg_9wVK41xi';
-        const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-        // registro de visita
-        try { sb.from('site_visits').insert({ page: location.pathname, referrer: document.referrer || null, user_agent: navigator.userAgent.slice(0,180) }); } catch(e) {}
-
-        // já logado? vai direto pro portal
-        sb.auth.getSession().then(({ data }) => {
-            if (data?.session) window.location.href = 'portal.html';
-        });
-
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const msg = document.getElementById('loginMsg');
-            const btn = document.getElementById('btnLogin');
-            btn.disabled = true;
-            msg.textContent = 'Entrando...';
-            msg.className = 'auth-msg';
-            const email = document.getElementById('email').value.trim();
-            const senha = document.getElementById('senha').value;
-            const { error } = await sb.auth.signInWithPassword({ email, password: senha });
-            if (error) {
-                msg.textContent = error.message === 'Invalid login credentials'
-                    ? 'E-mail ou senha incorretos.'
-                    : 'Erro: ' + error.message;
-                msg.classList.add('err');
-                btn.disabled = false;
-            } else {
-                window.location.href = 'portal.html';
-            }
-        });
-    </script>
+    <script src="login.js?v=1"></script>
 </body>
 </html>
